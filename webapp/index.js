@@ -2,9 +2,9 @@ sap.ui.require(
   [
     "sap/ui/core/mvc/XMLView",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/model/BindingMode",
+    "sap/ui/model/resource/ResourceModel",
   ],
-  function (XMLView, JSONModel, BindingMode) {
+  function (XMLView, JSONModel, ResourceModel) {
     "use strict";
 
     sap.ui.getCore().attachInit(function () {
@@ -12,12 +12,17 @@ sap.ui.require(
         firstName: "Harry",
         lastName: "Hawk",
         enabled: true,
-        panelHeaderText: "Data Binding Basics",
       });
 
-      oModel.setDefaultBindingMode(BindingMode.OneWay);
-
       sap.ui.getCore().setModel(oModel);
+
+      var oResourceModel = new ResourceModel({
+        bundleName: "sap.ui.demo.db.i18n.i18n",
+        supportedLocales: ["", "de"],
+        fallbackLocale: "",
+      });
+
+      sap.ui.getCore().setModel(oResourceModel, "i18n");
 
       new XMLView({ viewName: "sap.ui.demo.db.view.App" }).placeAt("content");
     });
