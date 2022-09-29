@@ -18,6 +18,8 @@ sap.ui.require(
           zip: "69190",
           country: "Germany",
         },
+        salesAmount: 12345.6789,
+        currencyCode: "EUR",
       });
 
       sap.ui.getCore().setModel(oModel);
