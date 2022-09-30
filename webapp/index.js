@@ -19,7 +19,7 @@ sap.ui.require(
           country: "Germany",
         },
         salesAmount: 12345.6789,
-        currencyCode: "EUR",
+        currencyCode: "HUF",
       });
 
       sap.ui.getCore().setModel(oModel);
